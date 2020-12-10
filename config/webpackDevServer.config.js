@@ -117,7 +117,7 @@ module.exports = function (proxy, allowedHost) {
       app.use(evalSourceMapMiddleware(server));
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());
-
+	  app.use('/api', apiRouter);
       if (fs.existsSync(paths.proxySetup)) {
         // This registers user provided middleware for proxy reasons
         require(paths.proxySetup)(app);
@@ -126,14 +126,14 @@ module.exports = function (proxy, allowedHost) {
     after(app) {
       // Redirect to `PUBLIC_URL` or `homepage` from `package.json` if url not match
       app.use(redirectServedPath(paths.publicUrlOrPath));
-
+	  
       // This service worker file is effectively a 'no-op' that will reset any
       // previous service worker registered for the same host:port combination.
       // We do this in development to avoid hitting the production cache if
       // it used the same host and port.
       // https://github.com/facebook/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware(paths.publicUrlOrPath));
-      app.use('/api', apiRouter);
+      
 	    
     },
   };

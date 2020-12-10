@@ -4,15 +4,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
 class App extends Component {
-  constructor(props){
-      super(props);
-     
-  }  
+   
   render() {
     const {Content} = Layout;
     const path = this.props.match.path;
     const props = this.props;
-    
+    let context = ""
     switch(path){
       case '/':
         context = <Home {...props}/>;

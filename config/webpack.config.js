@@ -98,7 +98,7 @@ module.exports = function (webpackEnv) {
     isEnvProduction && process.argv.includes('--profile');
 	
   //添加生产模式 apiUrl。
-  const apiUrl = isEnvDevelopment ? "/": config.apiUrl;
+  const apiUrl = isEnvDevelopment ? "" : config.apiUrl;
   // We will provide `paths.publicUrlOrPath` to our app
   // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
   // Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
