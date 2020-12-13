@@ -25,7 +25,7 @@ class Home extends React.Component {
 		const {version} = this.state;
     	return (
     		<div className="content">
-				{version != "" ? "连接服务成功，version :"+version:"未连接服务器。"}
+				{version !== "" ? "连接服务成功，version :"+version:"未连接服务器。"}
             </div>
     	)
     }
